@@ -3,53 +3,51 @@ import { Product } from "../types/products"
 
 const URL_API = 'https://fakestoreapi.com/products'
 
-async function getProduct(): Promise<Product[] | undefined> {
-    try {
-        const response = await fetch(URL_API)
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
+export async function getProduct(): Promise<Product[]> {
+    const res = await fetch(URL_API)
+    if (!res.ok) {
+        throw new Error('failed to get product')
     }
+    return res.json()
+
+    // try {
+    //     const response = await fetch(URL_API)
+    //     const data = await response.json()
+    //     return data
+    // } catch (error) {
+    //     console.log(error)
+    // }
 }
 
-async function productById(id: number): Promise<Product | undefined> {
-    try {
-        const response = await fetch(`${URL_API}/${id}`)
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
+export async function productById(id: number): Promise<Product> {
+    const res = await fetch(`${URL_API}/${id}`)
+    if (!res.ok) {
+        throw new Error('failed to get product')
     }
+    return res.json()
 }
 
-async function limitProduct(limit:number): Promise<Product[] | undefined> {
-    try {
-        const response = await fetch(`${URL_API}?limit=${limit}`)
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
+export async function limitProduct(limit: number): Promise<Product[]> {
+    const res = await fetch(`${URL_API}?limit=${limit}`)
+    if (!res.ok) {
+        throw new Error
     }
+    return res.json()
 }
 
-async function getCategory(): Promise<Categories | undefined>{
-    try {
-        const response = await fetch(`${URL_API}/categories`)
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
+export async function getCategory(): Promise<Categories>{
+    const res = await fetch(`${URL_API}/categories`)
+    if (!res.ok) {
+        throw new Error
     }
+    return res.json()
 }
 
-async function getByCategory(category: Category): Promise<Product[] | undefined> {
-    try {
-        const response = await fetch(`${URL_API}/category/${category}`)
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.log(error)
+export async function getByCategory(category: Category): Promise<Product[] | undefined> {
+    const res = await fetch(`${URL_API}/category/${category}`)
+    if (!res.ok) {
+        throw new Error
     }
+    return res.json()
 }
 

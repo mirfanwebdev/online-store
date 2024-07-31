@@ -1,4 +1,4 @@
-import { getProduct } from "../api/products";
+import { getProduct } from "../api/productsApi";
 import { Product } from "../types/products";
 import ProductCard from "./ProductCard";
 

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Header from "./components/Header";
 import ProductCard from "./components/ProductCard";
 import ProductContainer from "./components/ProductsContainer";
+import Menu from "./components/Menu";
 // import SearchBar from "./components/SearchBar";
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
       {/* products */}
       <div>product</div>
       {/* <ProductCard/> */}
-      <ProductContainer/>
+      <ProductContainer />
+      <Menu/>
     </main>
   );
 }
